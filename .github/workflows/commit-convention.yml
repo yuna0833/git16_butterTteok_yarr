@@ -1,0 +1,20 @@
+name: Commit Message Check
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+
+jobs:
+  check-commit-message:
+    name: Check Commit Message
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check commit message
+        uses: gsactions/commit-message-checker@v1
+        with:
+          pattern: '^(feat|fix|docs|style|refactor|test|chore):\s.+$'
+          error: 'commit message 형식을 맞춰주세요: "feat|fix|docs|style|refactor|test|chore: 내용"'
