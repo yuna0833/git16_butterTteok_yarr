@@ -8,6 +8,11 @@ on:
       - reopened
       - synchronize
 
+    push:
+      branches:
+        - main
+        - 'releases/*'
+
 jobs:
   check-commit-message:
     name: Check Commit Message
